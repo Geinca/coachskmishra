@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | SK Mishra</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+
+ 
+     <!-- 🔶 Header & Navigation -->
+
+  <div id="header-placeholder"></div>
+  <!-- 🟠 Contact Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2 class="section-title">📩 Get in Touch</h2>
+
+      <div class="contact-flex">
+
+        <!-- Left: Contact Info -->
+        <div class="contact-info">
+          <h3>Contact Details</h3>
+          <p><strong>📱 WhatsApp:</strong> <a href="https://wa.me/919999999999" target="_blank">+91 99999 99999</a></p>
+          <p><strong>📞 Phone:</strong> <a href="tel:+919999999999">+91 99999 99999</a></p>
+          <p><strong>📧 Email:</strong> <a href="mailto:skchakra@gmail.com">skchakra@gmail.com</a></p>
+
+          <div class="map-box">
+            <h4>🏠 Office Address:</h4>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29451.672501372878!2d85.8314655!3d20.2960585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909c0fc26bb61%3A0x763103a2f9b0a431!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1627303190744!5m2!1sen!2sin"
+              width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="contact-form">
+          <h3>Inquiry Form</h3>
+          <form id="inquiryForm">
+            <input type="text" name="name" placeholder="Name*" required />
+            <input type="email" name="email" placeholder="Email*" required />
+            <input type="tel" name="phone" placeholder="Phone Number*" required />
+            <textarea name="message" rows="5" placeholder="Your Question / Message..." required></textarea>
+            <button type="submit" class="chakra-btn">Submit</button>
+          </form>
+          <p id="form-status"></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ⚫ Footer -->
+  <div id="footer-placeholder"></div>
+  <script src="script.js"></script>
+  <!-- ✅ Script -->
+  <script>
+    document.getElementById("inquiryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("form-status").innerText = "🙏 Thank you! We will contact you shortly.";
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

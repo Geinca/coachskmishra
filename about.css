@@ -1,0 +1,249 @@
+/* ===== Base Styles ===== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans Oriya', sans-serif;
+    background: linear-gradient(to right, #fdf6f0, #f2f8f6);
+    color: #333;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Fade-in keyframe */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Section Wrapper ===== */
+.about-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Title ===== */
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #5c3c92;
+    margin-bottom: 40px;
+    animation: fadeInTitle 1s ease-in;
+}
+
+@keyframes fadeInTitle {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ===== Flex Layout ===== */
+.about-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ===== Left Panel ===== */
+.about-left {
+    flex: 1 1 300px;
+    text-align: center;
+    animation: slideInLeft 1.2s ease;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-img {
+    width: 280px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid #e0d6ff;
+    transition: transform 0.4s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.05);
+}
+
+.about-stats {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 12px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 1.6s ease;
+}
+
+/* ===== Right Panel ===== */
+.about-right {
+    flex: 1 1 400px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+    animation: slideInRight 1.2s ease;
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-right strong {
+    color: #3b2d74;
+}
+
+.about-highlights {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.about-highlights li {
+    background: #f0eaff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    animation: fadeInList 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInList {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-highlights li:hover {
+    background: #dfd3ff;
+    transform: scale(1.02);
+}
+
+/* ===== Mission & Vision ===== */
+.mission-vision {
+    background: linear-gradient(to right, #faf6ff, #eef8ff);
+    padding: 30px;
+    border-radius: 16px;
+    margin: 60px 0 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    animation: fadeIn 2s ease;
+}
+
+.mission-vision h3 {
+    font-size: 1.8rem;
+    color: #3c247b;
+    margin-bottom: 16px;
+}
+
+.mission-vision p {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+/* ===== Media Gallery ===== */
+.media-gallery {
+    text-align: center;
+    margin-top: 40px;
+    animation: fadeIn 2s ease;
+}
+
+.media-gallery h3 {
+    font-size: 1.6rem;
+    color: #4b3695;
+    margin-bottom: 20px;
+}
+
+.media-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.media-items img,
+.media-items video {
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: mediaFade 1.5s ease forwards;
+}
+
+@keyframes mediaFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.media-items img:hover,
+.media-items video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .about-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-left,
+    .about-right {
+        flex: 1 1 100%;
+    }
+
+    .media-items img,
+    .media-items video {
+        width: 90%;
+    }
+}

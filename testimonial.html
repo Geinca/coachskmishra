@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ପ୍ରତିକ୍ରିୟା | Chakra Healing Testimonials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #f5e9f7, #e0f7fa);
+      color: #333;
+    }
+
+    .testimonial-page {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .testimonial-page h1 {
+      font-size: 2.5rem;
+      color: #8E24AA;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-page .subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 50px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -40%;
+      width: 180%;
+      height: 180%;
+      background: radial-gradient(circle at center, rgba(142, 36, 170, 0.08), transparent);
+      z-index: 0;
+      transition: all 0.5s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(142, 36, 170, 0.2);
+    }
+
+    .testimonial-card:hover::before {
+      background: radial-gradient(circle at center, rgba(142, 36, 170, 0.15), transparent);
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: #0288D1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #8E24AA;
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-footer {
+      margin-top: 60px;
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      border-top: 1px dashed #ccc;
+      padding-top: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+   
+  </style>
+</head>
+<body>
+  <!-- 🔶 Header & Navigation -->
+  <div id="header-placeholder"></div>
+
+  <div class="testimonial-page">
+    <h1>💬 ପ୍ରତିକ୍ରିୟା ଏବଂ ଅନୁଭବ</h1>
+    <p class="subtitle">ଏହି କୋର୍ସ ଏପରି ଅନେକଙ୍କ ଜୀବନରେ ଆନିଛି ଦୂରଦୃଷ୍ଟି, ଶକ୍ତି ଓ ଆତ୍ମବିଶ୍ୱାସ।</p>
+
+    <div class="testimonial-grid">
+      <!-- Repeatable testimonial cards (6 total shown below) -->
+      <!-- You can copy-paste or dynamically load more as needed -->
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" class="testimonial-img" alt="Rina Nayak">
+        <p class="testimonial-quote">“ମୋ ଆତ୍ମବିଶ୍ୱାସ ବଢ଼ିଛି, ଚିନ୍ତା ଓ ଦୁଃଖ କମିଛି। ଧନ୍ୟବାଦ SK Mishra ସାର୍।”</p>
+        <div class="testimonial-name">- ରିନା ନାୟକ</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/52.jpg" class="testimonial-img" alt="Rahul Das">
+        <p class="testimonial-quote">“ଏହି କୋର୍ସ ମୋ ପାଇଁ ଜୀବନ ପରିବର୍ତ୍ତନ ହେଲା। ମୁଁ ଆପଣଙ୍କୁ ସିଫାରିଶ କରେ।”</p>
+        <div class="testimonial-name">- ରାହୁଲ ଦାସ</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="testimonial-img" alt="Sumitra Devi">
+        <p class="testimonial-quote">“ତାଙ୍କ ଧ୍ୟାନ ଗାଇଡ୍ ବେଶ ପ୍ରଭାବଶାଳୀ ଏବଂ ଆତ୍ମାକୁ ସ୍ନିଗ୍ଧ କରେ।”</p>
+        <div class="testimonial-name">- ସୁମିତ୍ରା ଦେବୀ</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" class="testimonial-img" alt="Prakash Mahapatra">
+        <p class="testimonial-quote">“ମୁଁ ପୂର୍ବରୁ ମେଡିଟେସନ କରିନଥିଲି, ବର୍ତ୍ତମାନ ଏହା ମୋ ପାଇଁ ଆଶୀର୍ବାଦ ହେଲା।”</p>
+        <div class="testimonial-name">- ପ୍ରକାଶ ମହାପାତ୍ର</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/12.jpg" class="testimonial-img" alt="Anita Behera">
+        <p class="testimonial-quote">“ମୋ ଆନ୍ତରିକ ଶକ୍ତି ଓ ଧ୍ୟାନ ଶକ୍ତି ବଢ଼ିଛି। ଏହି କୋର୍ସ ସତରେ ଅନୁଭବୀ।”</p>
+        <div class="testimonial-name">- ଅନିତା ବେହେରା</div>
+      </div>
+
+      <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/23.jpg" class="testimonial-img" alt="Satyajit Rout">
+        <p class="testimonial-quote">“SK Mishra ସାରଙ୍କ ଗାଇଡେନ୍ସ ମୋ ମନକୁ ଶାନ୍ତ କରେ। ମୁଁ ପ୍ରଭାବିତ।”</p>
+        <div class="testimonial-name">- ସତ୍ୟଜିତ ରାଉତ</div>
+      </div>
+    </div>
+
+    <div class="testimonial-footer">
+      ଏହି ପ୍ରତ୍ୟେକ ଅନୁଭବ ପ୍ରମାଣ କରେ ଯେ ଚକ୍ର ହିଲିଂ କେବଳ ଶିକ୍ଷା ନୁହେଁ, ଏହା ଆତ୍ମାର ଯାତ୍ରା ଆରମ୍ଭ କରାଏ। <br />
+      ଆପଣ ମଧ୍ୟ ଏହି ଯାତ୍ରାରେ ଯୋଗଦେଇ ନିଜ ଜୀବନରେ ପରିବର୍ତ୍ତନ ଆଣନ୍ତୁ।
+    </div>
+  </div>
+
+
+   <!-- ⚫ Footer -->
+   <div id="footer-placeholder"></div>
+
+   <!-- 🔽 Section Scroll Animation Script -->
+    <script src="script.js"></script>
+</body>
+</html>
