@@ -6,6 +6,8 @@ body {
     background: linear-gradient(to right, #fdf6f0, #f2f8f6);
     color: #333;
     animation: fadeIn 1.5s ease-in;
+    padding-top: 70px;
+    /* Added for fixed header */
 }
 
 /* Fade-in keyframe */
@@ -78,7 +80,8 @@ body {
 }
 
 .about-img {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 3px solid #e0d6ff;
@@ -109,6 +112,22 @@ body {
     font-size: 1.1rem;
     color: #444;
     animation: slideInRight 1.2s ease;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(59, 45, 116, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8E44AD, #3b2d74);
 }
 
 @keyframes slideInRight {
@@ -125,23 +144,77 @@ body {
 
 .about-right strong {
     color: #3b2d74;
+    font-weight: 700;
+}
+
+.technique-list {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.technique-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.technique-list li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: #8E44AD;
+    font-size: 1.2em;
 }
 
 .about-highlights {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
 .about-highlights li {
-    background: #f0eaff;
-    padding: 10px 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    font-weight: 500;
+    background: linear-gradient(135deg, #f0eaff, #ffffff);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 0;
+    font-weight: 600;
     transition: all 0.3s ease;
     animation: fadeInList 1s ease forwards;
     opacity: 0;
+    border: 1px solid rgba(59, 45, 116, 0.1);
+    box-shadow: 0 4px 10px rgba(59, 45, 116, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-highlights li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #8E44AD, #3b2d74);
+}
+
+.about-highlights li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.about-highlights li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.about-highlights li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.about-highlights li:nth-child(4) {
+    animation-delay: 0.8s;
 }
 
 @keyframes fadeInList {
@@ -157,8 +230,9 @@ body {
 }
 
 .about-highlights li:hover {
-    background: #dfd3ff;
-    transform: scale(1.02);
+    background: linear-gradient(135deg, #dfd3ff, #ffffff);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(59, 45, 116, 0.15);
 }
 
 /* ===== Mission & Vision ===== */
@@ -204,7 +278,8 @@ body {
 
 .media-items img,
 .media-items video {
-    width: 280px;
+    width: 100%;
+    max-width: 280px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -232,9 +307,18 @@ body {
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
     .about-flex {
         flex-direction: column;
         align-items: center;
+        gap: 20px;
     }
 
     .about-left,
@@ -242,8 +326,45 @@ body {
         flex: 1 1 100%;
     }
 
+    .about-right {
+        padding: 20px;
+        font-size: 1rem;
+    }
+
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-vision {
+        padding: 20px;
+        margin: 40px 0;
+    }
+
+    .mission-vision h3 {
+        font-size: 1.5rem;
+    }
+
+    .media-gallery h3 {
+        font-size: 1.4rem;
+    }
+
     .media-items img,
     .media-items video {
-        width: 90%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .about-stats div {
+        padding: 8px 0;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
     }
 }

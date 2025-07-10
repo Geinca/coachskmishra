@@ -1,47 +1,48 @@
-// 🌐 Load Header
-fetch('header.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('header-placeholder').innerHTML = data;
-    setupMobileMenu();       // Setup mobile nav toggling
-    setupAnchorScrolling();  // Enable anchor scrolling
-  });
+// ======================
+// 🏗️ INITIALIZATION CODE
+// ======================
 
-// 🔻 Load Footer
-fetch('footer.html')
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById('footer-placeholder').innerHTML = data;
-  });
+// 🌐 Load Header and Footer
+function loadTemplates() {
+  fetch('header.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+      setupMobileMenu();
+      setupAnchorScrolling();
+    });
 
-// ✨ Section Scroll Animation
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
+}
 
-document.querySelectorAll('section').forEach(section => observer.observe(section));
+// ======================
+// 🧭 NAVIGATION FUNCTIONS
+// ======================
 
+// 📜 Setup mobile menu toggle
 function toggleMenu() {
   const navbar = document.getElementById('navbar');
-  const icon = document.getElementById('menu-icon');
-
-  navbar.classList.toggle('active'); // Show/hide menu
-
-  // Change icon text based on menu visibility
+  const menuIcon = document.getElementById('menu-icon');
+  
+  // Toggle the 'active' class on the navbar
+  navbar.classList.toggle('active');
+  
+  // Change the menu icon based on state
   if (navbar.classList.contains('active')) {
-    icon.textContent = '✖'; // Cross icon
+    menuIcon.innerHTML = '✕'; // Close icon when menu is open
   } else {
-    icon.textContent = '☰'; // Hamburger icon
+    menuIcon.innerHTML = '☰'; // Hamburger icon when menu is closed
   }
 }
 
-// 🧭 Smooth Scroll to Anchor on Page Load
+
+// ⚓ Smooth scroll to anchor
 function setupAnchorScrolling() {
+  // Handle initial page load with hash
   const hash = window.location.hash;
   if (hash) {
     setTimeout(() => {
@@ -51,14 +52,116 @@ function setupAnchorScrolling() {
       }
     }, 300);
   }
+
+  // Setup all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
 }
 
-// 📄 (Optional) SPA Page Load Function
+// ======================
+// ✨ ANIMATION FUNCTIONS
+// ======================
+
+// 👀 Intersection Observer for scroll animations
+function setupScrollAnimations() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    observer.observe(section);
+  });
+}
+
+// ======================
+// 🎯 REGISTRATION BUTTON
+// ======================
+
+// 🖱️ Setup floating register buttonfunction setupRegisterButton() {
+  const btn = document.querySelector('.floating-register-btn');
+    
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const registerSection = document.getElementById('register');
+        if (registerSection) {
+          // Modern smooth scroll with options
+          registerSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+            inline: 'nearest'
+          });
+          
+          // Update URL without jumping
+          history.pushState(null, null, '#register');
+          
+          // Click animation feedback
+          this.style.transform = 'scale(0.9)';
+          const icon = this.querySelector('.btn-icon');
+          if (icon) {
+            icon.style.transform = 'rotate(10deg)';
+          }
+          
+          setTimeout(() => {
+            this.style.transform = '';
+            if (icon) icon.style.transform = '';
+          }, 200);
+        }
+      });
+    }
+
+    // Bonus: Hide button when already at registration section
+    window.addEventListener('scroll', function() {
+      const registerSection = document.getElementById('register');
+      const btn = document.querySelector('.floating-register-btn');
+      
+      if (registerSection && btn) {
+        const rect = registerSection.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          btn.style.opacity = '0';
+          btn.style.pointerEvents = 'none';
+        } else {
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+        }
+      }
+    });
+
+
+// ======================
+// 📄 (OPTIONAL) SPA LOADER
+// ======================
+
 function loadPage(path) {
   fetch(path)
     .then(res => res.text())
     .then(html => {
       document.getElementById("main").innerHTML = html;
-      setupAnchorScrolling(); // Re-scroll after dynamic load
+      setupAnchorScrolling();
     });
 }
+
+// ======================
+// 🚀 INITIALIZE EVERYTHING
+// ======================
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadTemplates();
+  setupScrollAnimations();
+  setupRegisterButton();
+  
+  // Initialize other components as needed
+});
